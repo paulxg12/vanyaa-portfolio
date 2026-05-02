@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Collaboration — Vanyaa</title>
+    <meta name="description" content="Fill out the inquiry form to book Vanyaa for your next campaign." />
+    <meta property="og:title" content="Book Collaboration — Vanyaa" />
+    <meta property="og:description" content="Fill out the inquiry form to book Vanyaa for your next campaign." />
+    <meta property="og:image" content="assets/images/og-image.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="navbar">
+      <div class="header-inner">
+        <div class="brand">VANYAA</div>
+        <nav class="nav-links">
+          <a href="about.html">About</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="services.html">Services</a>
+          <a href="media-kit.html">Media Kit</a>
+          <a href="press.html">Press</a>
+          <a href="work-with-me.html" style="color: var(--white);" class="nav-cta">Book Colab</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-header">
+        <div class="container">
+          <p class="eyebrow">Work With Me</p>
+          <h1>Book<br />Collaboration.</h1>
+          <p>Fill out the form below. You'll receive a custom quote within 24 hours.</p>
+        </div>
+      </section>
+
+      <section class="section" style="border-bottom: none;">
+        <div class="container">
+          <!-- SUCCESS MESSAGE (hidden by default) -->
+          <div class="form-success" id="formSuccess">
+            <h3>Thank You!</h3>
+            <p>Your inquiry has been received. Expect a response with your custom quote within 24 hours.<br />
+            <strong>Lead Quality:</strong> <span id="leadQuality">[Auto-assigned based on budget + timeline]</span></p>
+            <p style="margin-top: 24px;">
+              <a href="index.html" class="btn btn-outline">Back to Home</a>
+            </p>
+          </div>
+
+          <!-- INQUIRY FORM -->
+          <form class="form-container" id="inquiryForm" onsubmit="handleSubmit(event)">
+            <!-- Honeypot anti-spam -->
+            <input type="text" name="honey" id="honey" style="display: none;" tabindex="-1" autocomplete="off" />
+
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" name="fullName" required minlength="2" placeholder="e.g., Jane Smith" />
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company *</label>
+              <input type="text" id="company" name="company" required placeholder="e.g., Brand Name or Agency" />
+            </div>
+
+            <div class="form-group">
+              <label for="workEmail">Work Email *</label>
+              <input type="email" id="workEmail" name="workEmail" required placeholder="e.g., jane@brand.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="website">Brand/Agency Website *</label>
+              <input type="url" id="website" name="website" required placeholder="https://www.brand.com" />
+            </div>
+
+            <div class="form-group">
+              <label for="objective">Campaign Objective *</label>
+              <select id="objective" name="objective" required>
+                <option value="">Select an objective...</option>
+                <option value="awareness">Brand Awareness</option>
+                <option value="conversion">Conversion / Sales</option>
+                <option value="launch">Product Launch</option>
+                <option value="event">Event Coverage</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Deliverables Needed *</label>
+              <div class="checkbox-group">
+                <div class="checkbox-item">
+                  <input type="checkbox" id="delReel" name="deliverables" value="Sponsored Reel" />
+                  <label for="delReel">Sponsored Reel</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="delStory" name="deliverables" value="Story Set" />
+                  <label for="delStory">Story Set</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="delPost" name="deliverables" value="Static Post" />
+                  <label for="delPost">Static Post</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="delUGC" name="deliverables" value="UGC for Ads" />
+                  <label for="delUGC">UGC for Ads</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="delRetainer" name="deliverables" value="Monthly Retainer" />
+                  <label for="delRetainer">Monthly Retainer</label>
+                </div>
+                <div class="checkbox-item">
+                  <input type="checkbox" id="delEvent" name="deliverables" value="Event Appearance" />
+                  <label for="delEvent">Event Appearance</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="budget">Budget Range *</label>
+              <select id="budget" name="budget" required>
+                <option value="">Select budget range...</option>
+                <option value="under500">Under $500</option>
+                <option value="500-1k">$500 – $1,000</option>
+                <option value="1k-3k">$1,000 – $3,000</option>
+                <option value="3k-5k">$3,000 – $5,000</option>
+                <option value="5k+">$5,000+</option>
+                <option value="undecided">Undecided</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="timeline">Campaign Timeline *</label>
+              <input type="date" id="timeline" name="timeline" required />
+            </div>
+
+            <div class="form-group">
+              <label for="usageRights">Usage Rights Needed *</label>
+              <select id="usageRights" name="usageRights" required>
+                <option value="">Select usage rights...</option>
+                <option value="organic">Organic Only</option>
+                <option value="whitelist-30">Whitelisting – 30 Days</option>
+                <option value="whitelist-90">Whitelisting – 90 Days</option>
+                <option value="perpetual">Perpetual Usage</option>
+                <option value="not-sure">Not Sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="region">Region / Market</label>
+              <input type="text" id="region" name="region" placeholder="e.g., India, US, Global" />
+            </div>
+
+            <div class="form-group">
+              <label for="notes">Additional Notes</label>
+              <textarea id="notes" name="notes" placeholder="Tell us more about your campaign idea, target audience, brand guidelines, etc."></textarea>
+            </div>
+
+            <div class="consent-group">
+              <input type="checkbox" id="consent" name="consent" required />
+              <label for="consent">
+                I agree to the <a href="terms.html" style="color: var(--accent);">Terms of Collaboration</a> and <a href="privacy.html" style="color: var(--accent);">Privacy Policy</a>.
+                I consent to being contacted via email regarding this inquiry.
+              </label>
+            </div>
+
+            <!-- Hidden lead quality field (auto-filled by JS) -->
+            <input type="hidden" id="leadQualityField" name="leadQuality" value="" />
+
+            <button type="submit" class="btn btn-primary form-submit">Submit Inquiry</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span class="footer-brand">VANYAA</span>
+          <span class="footer-name">@vanyaaanegi._</span>
+        </div>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="services.html">Services</a>
+          <a href="media-kit.html">Media Kit</a>
+          <a href="press.html">Press</a>
+          <a href="work-with-me.html">Book Colab</a>
+        </div>
+        <div class="footer-right">
+          <span>[BUSINESS EMAIL REQUIRED FROM CLIENT]</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Vanyaa. All rights reserved.</span>
+        <span><a href="terms.html" style="color: var(--gray-4);">Terms</a> • <a href="privacy.html" style="color: var(--gray-4);">Privacy</a></span>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/form.js"></script>
+    <script src="assets/js/analytics.js"></script>
+  </body>
+</html>
